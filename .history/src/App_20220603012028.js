@@ -6,9 +6,9 @@ import MainHeader from "./components/MainHeader/MainHeader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const storedUserLoggedInInfo = localStorage.getItem("isLoggIn");
 
   useEffect(() => {
-    const storedUserLoggedInInfo = localStorage.getItem("isLoggedIn");
     if (storedUserLoggedInInfo === "1") {
       setIsLoggedIn(true);
     }
@@ -24,7 +24,6 @@ function App() {
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   };
 
