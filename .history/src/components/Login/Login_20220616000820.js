@@ -45,23 +45,19 @@ const Login = (props) => {
   //   return () => {
   //     console.log("Effect Cleanup");
   //   };
-  // }, []);
-
-  // alias assignment
-  const { isValid: emailIsValid } = emailState;
-  const { isValid: passwordIsValid } = passwordState;
+  // }, [enteredPassword]);
 
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity");
-      setFormIsValid(emailIsValid && passwordIsValid);
+      setFormIsValid(emailState.isValid && passwordState.isValid);
     }, 500);
 
     return () => {
       console.log("Cleaning up");
       clearTimeout(identifier);
     };
-  }, [emailIsValid, passwordIsValid]);
+  }, [emailState, passwordState]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);

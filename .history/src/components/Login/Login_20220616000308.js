@@ -7,8 +7,8 @@ import Button from "../UI/Button/Button";
 const Login = (props) => {
   // const [enteredEmail, setEnteredEmail] = useState("");
   // const [emailIsValid, setEmailIsValid] = useState();
-  // const [enteredPassword, setEnteredPassword] = useState("");
-  // const [passwordIsValid, setPasswordIsValid] = useState();
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
   const emailReducer = (state, action) => {
@@ -45,29 +45,27 @@ const Login = (props) => {
   //   return () => {
   //     console.log("Effect Cleanup");
   //   };
-  // }, []);
+  // }, [enteredPassword]);
 
-  // alias assignment
-  const { isValid: emailIsValid } = emailState;
-  const { isValid: passwordIsValid } = passwordState;
+  // useEffect(() => {
+  //   const identifier = setTimeout(() => {
+  //     console.log("Checking form validity");
+  //     setFormIsValid(
+  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
+  //     );
+  //   }, 500);
 
-  useEffect(() => {
-    const identifier = setTimeout(() => {
-      console.log("Checking form validity");
-      setFormIsValid(emailIsValid && passwordIsValid);
-    }, 500);
-
-    return () => {
-      console.log("Cleaning up");
-      clearTimeout(identifier);
-    };
-  }, [emailIsValid, passwordIsValid]);
+  //   return () => {
+  //     console.log("Cleaning up");
+  //     clearTimeout(identifier);
+  //   };
+  // }, [setFormIsValid, enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
 
-    // setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
+    setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
   };
 
   const passwordChangeHandler = (event) => {
