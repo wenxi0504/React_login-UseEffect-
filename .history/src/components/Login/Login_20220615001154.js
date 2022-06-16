@@ -15,9 +15,6 @@ const Login = (props) => {
     if (action.type === "USER_INPUT") {
       return { value: action.val, isValid: action.val.includes("@") };
     }
-    if (action.type === "INPUT_BLUR") {
-      return { value: state.value, isValid: state.value.includes("@") };
-    }
   };
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, () => {});

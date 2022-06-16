@@ -16,7 +16,7 @@ const Login = (props) => {
       return { value: action.val, isValid: action.val.includes("@") };
     }
     if (action.type === "INPUT_BLUR") {
-      return { value: state.value, isValid: state.value.includes("@") };
+      return { value: state.value, isValid: false };
     }
   };
 
