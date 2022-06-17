@@ -44,8 +44,8 @@ function App() {
         {/* {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />} */}
 
-        {!ctx.isLoggedIn && <Login />}
-        {ctx.isLoggedIn && <Home />}
+        {!ctx.isLoggedIn && <Login onLogin={loginHandler} />}
+        {ctx.isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
       {/* </AuthContext.Provider> */}
     </React.Fragment>

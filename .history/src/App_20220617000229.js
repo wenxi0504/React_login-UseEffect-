@@ -28,8 +28,6 @@ function App() {
   //   setIsLoggedIn(false);
   // };
 
-  const ctx = useContext(AuthContext);
-
   return (
     <React.Fragment>
       {/* <AuthContext.Provider
@@ -41,11 +39,8 @@ function App() {
       {/* <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} /> */}
       <MainHeader />
       <main>
-        {/* {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />} */}
-
-        {!ctx.isLoggedIn && <Login />}
-        {ctx.isLoggedIn && <Home />}
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
       {/* </AuthContext.Provider> */}
     </React.Fragment>

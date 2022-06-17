@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
@@ -28,27 +28,22 @@ function App() {
   //   setIsLoggedIn(false);
   // };
 
-  const ctx = useContext(AuthContext);
-
   return (
-    <React.Fragment>
-      {/* <AuthContext.Provider
+    // <React.Fragment>
+    <AuthContext.Provider
       value={{
         isLoggedIn: isLoggedIn,
         onLogout: logoutHandler,
       }}
-    > */}
+    >
       {/* <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} /> */}
       <MainHeader />
       <main>
-        {/* {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />} */}
-
-        {!ctx.isLoggedIn && <Login />}
-        {ctx.isLoggedIn && <Home />}
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
-      {/* </AuthContext.Provider> */}
-    </React.Fragment>
+    </AuthContext.Provider>
+    // </React.Fragment>
   );
 }
 
