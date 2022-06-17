@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import classes from "./Navigation.module.css";
 import AuthContext from "../../store/auth-context";
 
 const Navigation = (props) => {
-  const ctx = useContext(AuthContext);
   return (
     // <AuthContext.Consumer>
     //   {(ctx) => {
@@ -35,6 +34,7 @@ const Navigation = (props) => {
 
     <nav className={classes.nav}>
       <ul>
+        {/* {props.isLoggedIn && ( */}
         {ctx.isLoggedIn && (
           <li>
             <a href="/">Users</a>
