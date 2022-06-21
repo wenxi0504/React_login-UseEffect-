@@ -103,10 +103,6 @@ const Login = (props) => {
     event.preventDefault();
     if (formIsValid) {
       authCtx.onLogin(emailState.value, passwordState.value);
-    } else if (!emailIsValid) {
-      emailInputRef.current.focus();
-    } else {
-      passwordInputRef.current.focus();
     }
   };
 
@@ -128,7 +124,6 @@ const Login = (props) => {
           />
         </div> */}
         <Input
-          ref={emailInputRef}
           id="email"
           label="E-Mail"
           type="email"
@@ -152,7 +147,6 @@ const Login = (props) => {
           />
         </div> */}
         <Input
-          ref={passwordInputRef}
           id="password"
           label="Password"
           type="password"

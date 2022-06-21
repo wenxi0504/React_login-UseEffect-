@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useReducer,
-  useContext,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -60,8 +54,6 @@ const Login = (props) => {
   const { isValid: passwordIsValid } = passwordState;
 
   const authCtx = useContext(AuthContext);
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
 
   useEffect(() => {
     const identifier = setTimeout(() => {
@@ -101,13 +93,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (formIsValid) {
-      authCtx.onLogin(emailState.value, passwordState.value);
-    } else if (!emailIsValid) {
-      emailInputRef.current.focus();
-    } else {
-      passwordInputRef.current.focus();
-    }
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
@@ -128,7 +114,6 @@ const Login = (props) => {
           />
         </div> */}
         <Input
-          ref={emailInputRef}
           id="email"
           label="E-Mail"
           type="email"
@@ -152,7 +137,6 @@ const Login = (props) => {
           />
         </div> */}
         <Input
-          ref={passwordInputRef}
           id="password"
           label="Password"
           type="password"
